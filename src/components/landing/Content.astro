@@ -1,58 +1,68 @@
 ---
-import { details } from "../../data/details.json";
-import { contact } from "../../data/contact.json";
+import { writing } from "../../data/details.json";
+import { hacks } from "../../data/hacks.json";
 ---
 
 <section>
-  <div class="mx-auto max-w-7xl px-8 py-12">
+  <div class="mx-auto px-8">
     <div class="mx-auto max-w-xl">
-      <div class="grid gap-12 md:gap-24">
-        <div class="text-sm font-light">
-          <p class="text-black dark:text-white">Work experience</p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        {/* Left Column for Headers */}
+        <div class="md:col-span-1">
+          <div class="text-sm font-light">
+            <p class="text-black dark:text-white">Writing</p>
+          </div>
+          <div class="text-sm font-light mt-12" style="padding-top: 19rem;">
+            <p class="text-black dark:text-white">Hacks</p>
+          </div>
+        </div>
 
-          <div class="grid gap-6 mt-3">
+        {/* Right Column for Details */}
+        <div class="md:col-span-3">
+          <div class="grid gap-3">
+            {/* Mapping through details for Writing */}
             {
-              details.map((template) => (
+              writing.map((template) => (
                 <>
                   <div class="text-neutral-500  items-start grid grid-cols-1 md:grid-cols-3">
-                    <div>
-                      <p class="text-neutral-400 dark:text-neutral-400">{template.date}</p>
-                    </div>
                     <div class="md:col-span-2 w-full">
-                      <p class="text-black dark:text-white">
+                      <p class="text-sm text-black dark:text-white">
                         <a
                           href={template.link}
-                          class="underline hover:no-underline duration-200 after:content-['_↗']">
+                          class="hover:no-underline duration-200">
                           {template.title}
                         </a>
                       </p>
-                      <p class="">{template.location}</p>
+                    </div>
+                    <div class="text-right"> {/* This class aligns the text to the right */}
+                      <p class="text-sm text-neutral-400 dark:text-neutral-400">
+                        {template.date}
+                      </p>
                     </div>
                   </div>
                 </>
               ))
             }
           </div>
-        </div>
-        <div class="text-sm font-light">
-          <p class="text-black dark:text-white">Contact</p>
-
-          <div class="grid gap-6 mt-3">
+          <div class="grid gap-3 mt-12 pb-12">
+            {/* Mapping through details for Hacks */}
             {
-              contact.map((template) => (
+              hacks.map((template) => (
                 <>
                   <div class="text-neutral-500  items-start grid grid-cols-1 md:grid-cols-3">
-                    <div>
-                      <p class="text-neutral-400 dark:text-neutral-400">{template.type}</p>
-                    </div>
                     <div class="md:col-span-2 w-full">
-                      <p class="text-black dark:text-white">
+                      <p class="text-sm text-black dark:text-white">
                         <a
                           href={template.link}
-                          title={template.type}
-                          class="underline hover:no-underline duration-200 after:content-['_↗']">
+                          class="hover:no-underline duration-200">
                           {template.title}
                         </a>
+                      </p>
+                      <p class="text-sm">{template.description}</p>
+                    </div>
+                    <div class="text-right"> {/* This class aligns the text to the right */}
+                      <p class="text-sm text-neutral-400 dark:text-neutral-400">
+                        {template.date}
                       </p>
                     </div>
                   </div>
