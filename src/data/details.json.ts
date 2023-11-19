@@ -2,7 +2,6 @@ export interface Template {
   link: string;
   title: string;
   date: string;
-  description: string;
 }
 
 const ten: Template = {
